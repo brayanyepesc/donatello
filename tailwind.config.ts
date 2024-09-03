@@ -1,11 +1,12 @@
 import type { Config } from 'tailwindcss';
 
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: [	
+		'./src/**/*.{html,js,svelte,ts}',
+		'./src/components/**/*.svelte',
+	],
 
 	theme: {
 		extend: {}
 	},
-
-	plugins: [require('@tailwindcss/typography')]
 } as Config;
