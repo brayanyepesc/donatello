@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Pink Donut",
+        "price": 2.99,
+        "description": "A delicious pink donut with sprinkles",
+        "inStock": 10,
+        "imageUrl": "/images/PinkDonut.webp"
+    },
+    {
+        "id": 2,
+        "name": "Chocolate Donut",
+        "price": 2.99,
+        "description": "A delicious chocolate donut with sprinkles",
+        "inStock": 10,
+        "imageUrl": "/images/ChocolateDonut.webp"
+    },
+    {
+        "id": 3,
+        "name": "White Donut",
+        "price": 2.99,
+        "description": "A delicious white donut with sprinkles",
+        "inStock": 10,
+        "imageUrl": "/images/WhiteDonut.webp"
+    }
+]
