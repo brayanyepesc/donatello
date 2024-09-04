@@ -2,7 +2,7 @@
 	import products from '../data/products.json';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import Swal from 'sweetalert2';
+	import { Alert } from '../utils/swal';
 
 	let orderUrl = '/';
 
@@ -14,12 +14,11 @@
 
 	const handleClickOrderNow = () => {
 		if (!$page.data?.session) {
-			Swal.fire({
+			Alert({
 				icon: 'warning',
 				title: 'Login Required',
 				text: 'To purchase, you need to log in.',
-				timer: 3000,
-			});
+			})
 		}
 	};
 </script>

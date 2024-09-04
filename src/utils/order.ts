@@ -1,6 +1,6 @@
-import Swal from "sweetalert2"
 import type { CartProduct } from "../types/types"
 import { clearCart } from "./cart"
+import { Alert } from "./swal"
 
 
 export const generateOrder = (cart: CartProduct[]) => {
@@ -26,10 +26,9 @@ export const generateOrder = (cart: CartProduct[]) => {
     clearCart();
     URL.revokeObjectURL(url);
     document.body.removeChild(link);
-    Swal.fire({
+    Alert({
         icon: "success",
         title: "Order generated successfully",
-        showConfirmButton: false,
         timer: 1500,
     })
 }
