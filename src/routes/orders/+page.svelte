@@ -3,14 +3,21 @@
 	import type { CartProduct } from '../../types/types';
 	import Product from '../../components/molecules/Product/Product.svelte';
 	import { LucideTrash } from 'lucide-svelte';
-	import { getCart, removeFromCart } from '../../utils/cart';
+	import { getCart, removeFromCart, updateQuantity } from '../../utils/cart';
 	let cart: CartProduct[] = [];
+
+	$: total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
+
 	onMount(() => {
 		const storedCart = localStorage.getItem('cart');
 		cart = storedCart ? JSON.parse(storedCart) : [];
 	});
 	const handleRemoveFromCart = (id: string) => {
 		removeFromCart(id)
+		cart = getCart();
+	};
+	const handleUpdateQuantity = (id: string, quantity: number) => {
+		updateQuantity(id, quantity);
 		cart = getCart();
 	};
 </script>
@@ -27,16 +34,16 @@
 					</button>
 					<Product {product} />
 					<div class="flex justify-evenly items-center w-full mt-5">
-						<button class="px-4 py-1 rounded-md bg-pink-500 text-white hover:bg-pink-700">-</button>
+						<button on:click={() => handleUpdateQuantity(product.id, -1)} class="px-4 py-1 rounded-md bg-pink-500 text-white hover:bg-pink-700">-</button>
 						<span class="px-4 py-1 rounded-md bg-white/10 text-white">{product.quantity}</span>
-						<button class="px-4 py-1 rounded-md bg-pink-500 text-white hover:bg-pink-700">+</button>
+						<button on:click={() => handleUpdateQuantity(product.id, 1)} class="px-4 py-1 rounded-md bg-pink-500 text-white hover:bg-pink-700">+</button>
 					</div>
 				</div>
 			{/each}
 		</ul>
 		<div class="col-span-2 flex flex-col justify-center space-y-4 p-20">
 			<h2 class="text-3xl font-bold text-white">
-				Total: ${cart.reduce((acc, product) => acc + product.price, 0)}
+				Total: ${total.toFixed(2)}
 			</h2>
 			<button class="w-1/2 rounded-md bg-pink-500 p-2 text-white hover:bg-pink-700">Checkout</button
 			>
