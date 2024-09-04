@@ -3,11 +3,16 @@
 	import type { CartProduct } from '../../types/types';
 	import Product from '../../components/molecules/Product/Product.svelte';
 	import { LucideTrash } from 'lucide-svelte';
+	import { getCart, removeFromCart } from '../../utils/cart';
 	let cart: CartProduct[] = [];
 	onMount(() => {
 		const storedCart = localStorage.getItem('cart');
 		cart = storedCart ? JSON.parse(storedCart) : [];
 	});
+	const handleRemoveFromCart = (id: string) => {
+		removeFromCart(id)
+		cart = getCart();
+	};
 </script>
 
 <div class="min-h-screen bg-black">
@@ -17,7 +22,7 @@
 		<ul class="grid grid-cols-5 gap-5 p-20 h-full w-full">
 			{#each cart as product}
 				<div class="flex flex-col justify-center items-center w-full h-full relative">
-					<button class="absolute top-2 right-2 bg-indigo-500 w-10 h-10 rounded-full flex justify-center items-center hover:bg-indigo-700">
+					<button on:click={() => handleRemoveFromCart(product.id)} class="absolute top-2 right-2 bg-indigo-500 w-10 h-10 rounded-full flex justify-center items-center hover:bg-indigo-700">
 						<LucideTrash class="text-white" />
 					</button>
 					<Product {product} />

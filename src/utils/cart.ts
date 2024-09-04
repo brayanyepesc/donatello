@@ -24,3 +24,9 @@ export function addToCart(product: Product): void {
     }
     saveCart(cart);
 }
+
+export function removeFromCart(productId: string): void {
+    const cart = getCart();
+    const updatedCart = cart.filter((item) => item.id !== productId);
+    saveCart(updatedCart);
+}
