@@ -3,8 +3,9 @@
 	import type { CartProduct } from '../../../types/types';
 	import Product from '../../../components/molecules/Product/Product.svelte';
 	import { LucideTrash } from 'lucide-svelte';
-	import { getCart, removeFromCart, updateQuantity } from '../../../utils/cart';
+	import { clearCart, getCart, removeFromCart, updateQuantity } from '../../../utils/cart';
 	import EmptyCart from '../../../components/organisms/EmptyCart/EmptyCart.svelte';
+	import { generateOrder } from '../../../utils/order';
 	let cart: CartProduct[] = [];
 
 	$: total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
@@ -21,6 +22,10 @@
 		updateQuantity(id, quantity);
 		cart = getCart();
 	};
+	const handleOrder = () => {
+		generateOrder(cart);
+		cart = getCart();
+	}
 </script>
 
 <div class="min-h-screen bg-black">
@@ -46,7 +51,7 @@
 			<h2 class="text-3xl font-bold text-white">
 				Total: ${total.toFixed(2)}
 			</h2>
-			<button class="w-1/2 rounded-md bg-pink-500 p-2 text-white hover:bg-pink-700">Checkout</button
+			<button class="w-1/2 rounded-md bg-pink-500 p-2 text-white hover:bg-pink-700" on:click={handleOrder}>Checkout</button
 			>
 		</div>
 	{/if}

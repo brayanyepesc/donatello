@@ -9,6 +9,10 @@ export function saveCart(cart: CartProduct[]): void {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+export function clearCart(): void {
+    localStorage.removeItem('cart');
+}
+
 export function addToCart(product: Product): void {
     const cart = getCart();
     const existingProduct = cart.find((item) => item.id === product.id);
