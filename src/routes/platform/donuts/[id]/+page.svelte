@@ -1,8 +1,8 @@
 <script lang="ts">
-	import products from '../../../data/products.json';
+	import products from '../../../../data/products.json';
 	import { page } from '$app/stores';
-	import type { Product } from '../../../types/types';
-	import { addToCart } from '../../../utils/cart';
+	import type { Product } from '../../../../types/types';
+	import { addToCart } from '../../../../utils/cart';
 	$: id = $page.url.pathname.split('/').pop();
 	$: product = products.find((product: Product) => product.id === id);
 	const handleAddToCart = () => {

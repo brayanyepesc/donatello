@@ -17,8 +17,8 @@
                     alt="User avatar"
                     class="w-8 h-8 rounded-full"
                     />
-					<a href="/donuts" class="rounded-md text-indigo-500 p-2 shadow-lg transition-all hover:text-indigo-700">Donuts</a>
-                    <a href="/orders" class="rounded-md text-indigo-500 p-2 shadow-lg transition-all hover:text-indigo-700">Orders</a>
+					<a href="/platform/donuts" class="rounded-md text-indigo-500 p-2 shadow-lg transition-all hover:text-indigo-700">Donuts</a>
+                    <a href="/platform/orders" class="rounded-md text-indigo-500 p-2 shadow-lg transition-all hover:text-indigo-700">Orders</a>
 					<button
                         on:click={() => signOut()}
                         class="rounded-md bg-pink-500 p-2 text-white shadow-lg transition-all hover:bg-pink-700"

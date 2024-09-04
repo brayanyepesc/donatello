@@ -1,6 +1,6 @@
 <script>
-	import Product from '../../components/molecules/Product/Product.svelte';
-import products from '../../data/products.json';
+	import Product from '../../../components/molecules/Product/Product.svelte';
+	import products from '../../../data/products.json';
 </script>
 
 <div class="bg-black px-20">

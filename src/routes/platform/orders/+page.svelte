@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { CartProduct } from '../../types/types';
-	import Product from '../../components/molecules/Product/Product.svelte';
+	import type { CartProduct } from '../../../types/types';
+	import Product from '../../../components/molecules/Product/Product.svelte';
 	import { LucideTrash } from 'lucide-svelte';
-	import { getCart, removeFromCart, updateQuantity } from '../../utils/cart';
+	import { getCart, removeFromCart, updateQuantity } from '../../../utils/cart';
 	let cart: CartProduct[] = [];
 
 	$: total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
