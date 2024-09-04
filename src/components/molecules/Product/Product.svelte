@@ -3,7 +3,7 @@
 </script>
 
 <li class="bg-white/5 p-12 hover:bg-indigo-500/20 h-full rounded-md">
-    <a href="/donuts/{product.id}">
+    <a href="/platform/donuts/{product.id}">
         <img src={product.imageUrl} alt={product.name} />
         <div class="space-y-2">
             <p class="text-center text-5xl font-bold text-pink-500">${product.price}</p>
