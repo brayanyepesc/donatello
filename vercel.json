@@ -1,0 +1,11 @@
+{
+    "builds": [
+        {
+            "src": "src/app.svelte",
+            "use": "@sveltejs/adapter-auto",
+            "config": {
+                "distDir": "build"
+            }
+        }
+    ]
+}
