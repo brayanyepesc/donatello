@@ -37,6 +37,7 @@
 		"@auth/core": "^0.34.2",
 		"@auth/sveltekit": "^1.4.2",
 		"dotenv": "^16.4.5",
+		"lucide-svelte": "^0.438.0",
 		"sweetalert2": "^11.13.1"
 	}
 }

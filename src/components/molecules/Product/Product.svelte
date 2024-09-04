@@ -2,7 +2,7 @@
     export let product;
 </script>
 
-<li class="bg-white/5 p-12 hover:bg-indigo-500/20">
+<li class="bg-white/5 p-12 hover:bg-indigo-500/20 h-full rounded-md">
     <a href="/donuts/{product.id}">
         <img src={product.imageUrl} alt={product.name} />
         <div class="space-y-2">
