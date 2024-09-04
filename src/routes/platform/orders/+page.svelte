@@ -32,7 +32,7 @@
 	{#if cart.length === 0}
 		<EmptyCart />
 	{:else}
-		<ul class="grid grid-cols-5 gap-5 p-20 h-full w-full">
+		<ul class="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-5 p-5 md:p-20 h-full w-full">
 			{#each cart as product}
 				<div class="flex flex-col justify-center items-center w-full h-full relative">
 					<button on:click={() => handleRemoveFromCart(product.id)} class="absolute top-2 right-2 bg-indigo-500 w-10 h-10 rounded-full flex justify-center items-center hover:bg-indigo-700">
@@ -47,7 +47,7 @@
 				</div>
 			{/each}
 		</ul>
-		<div class="col-span-2 flex flex-col justify-center space-y-4 p-20">
+		<div class="col-span-2 flex flex-col justify-center space-y-4 p-10 md:p-20">
 			<h2 class="text-3xl font-bold text-white">
 				Total: ${total.toFixed(2)}
 			</h2>

@@ -12,11 +12,11 @@
 	};
 </script>
 
-<div class="grid min-h-screen grid-cols-2 place-items-center gap-5 bg-black px-20">
+<div class="grid min-h-screen grid-cols-1 md:grid-cols-2 place-items-center gap-2 md:gap-5 bg-black px-5 md:px-20">
 	<div>
 		<img src={product?.imageUrl} alt={product?.name} />
 	</div>
-	<div class="flex flex-col justify-center space-y-4">
+	<div class="flex flex-col justify-center space-y-2 md:space-y-4">
 		<h1 class="text-4xl font-bold text-indigo-500">{product?.name}</h1>
 		<p class="text-white">{product?.description}</p>
 		<p class="text-5xl font-bold text-pink-500">${product?.price}</p>
