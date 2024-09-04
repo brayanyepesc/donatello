@@ -4,6 +4,7 @@
 	import Product from '../../../components/molecules/Product/Product.svelte';
 	import { LucideTrash } from 'lucide-svelte';
 	import { getCart, removeFromCart, updateQuantity } from '../../../utils/cart';
+	import EmptyCart from '../../../components/organisms/EmptyCart/EmptyCart.svelte';
 	let cart: CartProduct[] = [];
 
 	$: total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
@@ -24,7 +25,7 @@
 
 <div class="min-h-screen bg-black">
 	{#if cart.length === 0}
-		<p class="col-span-5 text-center text-3xl text-white">No items in cart</p>
+		<EmptyCart />
 	{:else}
 		<ul class="grid grid-cols-5 gap-5 p-20 h-full w-full">
 			{#each cart as product}
